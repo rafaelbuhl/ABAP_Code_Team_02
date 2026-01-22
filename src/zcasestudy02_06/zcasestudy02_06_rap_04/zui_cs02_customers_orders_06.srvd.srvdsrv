@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service für MS'
+define service ZUI_CS02_CUSTOMERS_ORDERS_06 {
+  expose ZR_CS02_CUSTOMERS_06_MS;
+  expose ZR_CS02_CUSTORDERS_06;
+}

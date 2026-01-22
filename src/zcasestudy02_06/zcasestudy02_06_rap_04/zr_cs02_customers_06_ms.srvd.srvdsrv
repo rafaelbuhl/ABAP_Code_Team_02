@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service für ZR_CS02_CUSTOMERS_06_MS'
+define service ZR_CS02_CUSTOMERS_06_MS {
+  expose ZR_CS02_CUSTOMERS_06_MS;
+}

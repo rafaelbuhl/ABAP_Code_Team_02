@@ -1,0 +1,10 @@
+@Metadata.layer: #CUSTOMER  
+annotate view ZC_CS02_CUSTORDERS
+    with 
+{
+    @UI.lineItem: [ { position: 15, label: 'Kunden-ID', importance: #HIGH } ]
+    @UI.identification: [ { position: 15, label: 'Kunden-ID' } ]
+    @UI.selectionField: [ { position: 15 } ]  
+    Customerid;
+    
+}

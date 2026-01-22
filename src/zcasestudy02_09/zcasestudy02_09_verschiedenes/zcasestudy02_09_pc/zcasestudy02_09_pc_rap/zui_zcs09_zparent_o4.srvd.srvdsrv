@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Service Definition for ZC_CS09_ZPARENT'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZC_CS09_ZPARENT'
+  }
+}
+define service ZUI_ZCS09_ZPARENT_O4 provider contracts odata_v4_ui {
+  expose ZC_CS09_ZPARENT;
+}

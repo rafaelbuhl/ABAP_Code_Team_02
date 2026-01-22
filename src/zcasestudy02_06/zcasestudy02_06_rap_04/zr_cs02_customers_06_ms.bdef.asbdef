@@ -1,0 +1,97 @@
+managed implementation in class zbp_r_cs02_customers_06_ms unique;
+strict ( 2 );
+with draft;
+define behavior for ZR_CS02_CUSTOMERS_06_MS alias _Customers
+persistent table zcs02_customers
+draft table zcs02_cust_d_06
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master ( instance )
+//etag master <field_name>
+{
+  create ( authorization : global );
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  field ( readonly: update ) Customerid;
+  association _Order { create; with draft; }
+  mapping for zcs02_customers corresponding
+    {
+      Customerid         = customerid;
+      Salutation         = salutation;
+      LastName           = last_name;
+      FirstName          = first_name;
+      Company            = company;
+      Street             = street;
+      City               = city;
+      Country            = country;
+      Postcode           = postcode;
+      AccLock            = acc_lock;
+      LastDate           = last_date;
+      SalesVolume        = sales_volume;
+      SalesVolumeTarget  = sales_volume_target;
+      ChangeRateDate     = change_rate_date;
+      Fax                = fax;
+      Phone              = phone;
+      Email              = email;
+      Url                = url;
+      Currency           = currency;
+      CurrencyTarget     = currency_target;
+      Language           = language;
+      Weblogin           = weblogin;
+      Webpw              = webpw;
+      Memo               = memo;
+      CreatedBy          = created_by;
+      CreatedAt          = created_at;
+      LocalLastChangedBy = local_last_changed_by;
+      LocalLastChangedAt = local_last_changed_at;
+      LastChangedAt      = last_changed_at;
+    }
+}
+
+define behavior for ZR_CS02_CUSTORDERS_06 alias _Order
+persistent table zcs02_custorders
+draft table zcs02_orders_6_d
+
+lock dependent by _Customer
+authorization dependent by _Customer
+etag master LocalLastChangedAt
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) Customerid;
+  field ( readonly ) Orderid;
+
+
+//  draft action Activate optimized;
+//  draft action Discard;
+//  draft action Edit;
+//  draft action Resume;
+//  draft determine action Prepare;
+
+
+  association _Customer {with draft;}
+  mapping for ZCS02_CUSTORDERS corresponding
+  {
+    Orderid = orderid;
+    Customerid = customerid;
+    OrderDate = order_date;
+    OrderTotal = order_total;
+    Discount = discount;
+    Info = info;
+    Status = status;
+    Currency = currency;
+    CreatedBy = created_by;
+    CreatedAt = created_at;
+    LocalLastChangedBy = local_last_changed_by;
+    LocalLastChangedAt = local_last_changed_at;
+    LastChangedAt = last_changed_at;
+  }
+}

@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Service-Definition für ZC_CS02_POSTCODE'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZC_CS02_POSTCODE'
+  }
+}
+define service ZUI_CS02_POSTCODE_O4 provider contracts odata_v4_ui {
+  expose ZC_CS02_POSTCODE;
+}

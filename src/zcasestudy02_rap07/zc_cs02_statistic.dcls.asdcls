@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZC_CS02_STATISTIC'
+@MappingRole: true
+define role ZC_CS02_STATISTIC {
+  grant select on ZC_CS02_STATISTIC
+  where INHERITING CONDITIONS FROM ENTITY ZR_CS02_STATISTIC REPLACING { ROOT WITH _BaseEntity };
+}

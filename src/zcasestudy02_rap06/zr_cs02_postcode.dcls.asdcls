@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZR_CS02_POSTCODE'
+@MappingRole: true
+define role ZR_CS02_POSTCODE {
+  grant select on ZR_CS02_POSTCODE
+  where TRUE;
+}

@@ -1,0 +1,153 @@
+@Metadata.layer: #CORE
+@UI.headerInfo.title.type: #STANDARD
+@UI.headerInfo.title.value: 'UUID'
+@UI.headerInfo.description.type: #STANDARD
+@UI.headerInfo.description.value: 'UUID'
+annotate view ZC_CS02_STATISTIC with
+{
+  @EndUserText.label: 'UUID'
+  @UI.facet: [ {
+    label: 'Allgemeine Informationen', 
+    id: 'GeneralInfo', 
+    purpose: #STANDARD, 
+    position: 10 , 
+    type: #IDENTIFICATION_REFERENCE
+  } ]
+  @UI.identification: [ {
+    position: 10 , 
+    label: 'UUID'
+  } ]
+  @UI.lineItem: [ {
+    position: 10 , 
+    label: 'UUID'
+  } ]
+  @UI.selectionField: [ {
+    position: 10 
+  } ]
+  UUID;
+  
+  @UI.identification: [ {
+    position: 20 
+  } ]
+  @UI.lineItem: [ {
+    position: 20 
+  } ]
+  @UI.selectionField: [ {
+    position: 20 
+  } ]
+  Name;
+  
+    @UI.identification: [ {
+    position: 25 
+  } ]
+  @UI.lineItem: [ {
+    position: 25 
+  } ]
+  @UI.selectionField: [ {
+    position: 25 
+  } ]
+  InterfaceName;
+  
+  @UI.identification: [ {
+    position: 30 
+  } ]
+  @UI.lineItem: [ {
+    position: 30 
+  } ]
+  @UI.selectionField: [ {
+    position: 30 
+  } ]
+  @Consumption.valueHelpDefinition: [{ 
+    entity.name: 'ZCS02_C_STATISTICS_VALUE_HELP',
+    entity.element: 'Type'
+   }]
+  Type;
+  
+  @EndUserText.label: 'IsActive'
+  @UI.identification: [ {
+    position: 40 , 
+    label: 'IsActive'
+  } ]
+  @UI.lineItem: [ {
+    position: 40 , 
+    label: 'IsActive'
+  } ]
+  @UI.selectionField: [ {
+    position: 40 
+  } ]
+  IsActive;
+  
+  @UI.identification: [ {
+    position: 50 
+  } ]
+  @UI.lineItem: [ {
+    position: 50 
+  } ]
+  @UI.selectionField: [ {
+    position: 50 
+  } ]
+    @UI.hidden: true
+  CreatedBy;
+  
+  @UI.identification: [ {
+    position: 60 
+  } ]
+  @UI.lineItem: [ {
+    position: 60 
+  } ]
+  @UI.selectionField: [ {
+    position: 60 
+  } ]
+    @UI.hidden: true
+  CreatedAt;
+  
+  @UI.identification: [ {
+    position: 70 
+  } ]
+  @UI.lineItem: [ {
+    position: 70 
+  } ]
+  @UI.selectionField: [ {
+    position: 70 
+  } ]
+    @UI.hidden: true
+  LocalLastChangedBy;
+  
+  @UI.identification: [ {
+    position: 80 
+  } ]
+  @UI.lineItem: [ {
+    position: 80 
+  } ]
+  @UI.selectionField: [ {
+    position: 80 
+  } ]
+    @UI.hidden: true
+  LocalLastChangedAt;
+  
+  @UI.identification: [ {
+    position: 90 
+  } ]
+  @UI.lineItem: [ {
+    position: 90 
+  } ]
+  @UI.selectionField: [ {
+    position: 90 
+  } ]
+  @UI.hidden: true
+  LastChangedAt;
+  
+  @EndUserText.label: '_BaseEntity'
+  @UI.identification: [ {
+    position: 100 , 
+    label: '_BaseEntity'
+  } ]
+  @UI.lineItem: [ {
+    position: 100 , 
+    label: '_BaseEntity'
+  } ]
+  @UI.selectionField: [ {
+    position: 100 
+  } ]
+  _BaseEntity;
+}

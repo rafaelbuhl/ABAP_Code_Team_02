@@ -1,0 +1,11 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "name": "ZCS02_POSTCODE_6",
+  "sapObjectType": "ZCS02_POSTCODE_6",
+  "rootNode": true
+}

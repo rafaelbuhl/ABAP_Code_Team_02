@@ -1,0 +1,11 @@
+@EndUserText.label: 'Versuch 2'
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZC_CS02_CUSTOMERS_M'
+  }
+}
+define service ZUI_CS02_CUSTOMERS_ORDERS_2
+  provider contracts odata_v4_ui {
+  expose ZC_CS02_CUSTOMERS_M;
+  expose ZC_CS02_CUSTORDERS_S;
+}

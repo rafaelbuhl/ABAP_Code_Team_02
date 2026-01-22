@@ -1,0 +1,128 @@
+managed implementation in class zbp_r_cs02_customers_ms unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_CS02_CUSTOMERS_M alias _Customers
+persistent table zcs02_customers
+extensible
+//late numbering
+//key draftuuid      : sysuuid_x16 not null;
+draft table zcs02_cust_d_m
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master ( instance, global )
+//etag master <field_name>
+{
+  field ( mandatory : create )
+  Customerid;
+
+  field ( readonly )
+  SalesVolume,
+  SalesVolumeTarget;
+
+  create ( authorization : global );
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  validation CheckEmail on save { create; update; }
+  validation CheckCompany on save { create; }
+
+  determination GetCity on save { field Postcode; }
+  determination GetCurrencyTarget on save { field SalesVolume; field Currency; field CurrencyTarget; }
+  determination GetDefaultValues on modify { create; }
+  determination SetLastDate on modify { create; update; }
+
+  static action CancelOrders parameter zcs02_cust_act_par result [0..1] $self;
+  action ShowStatistics result [0..1] $self;
+
+  side effects { entity _Order affects field SalesVolume, field SalesVolumeTarget; }
+
+  association _Order { create; with draft; }
+  mapping for zcs02_customers corresponding extensible
+    {
+      Customerid         = customerid;
+      Salutation         = salutation;
+      LastName           = last_name;
+      FirstName          = first_name;
+      Company            = company;
+      Street             = street;
+      City               = city;
+      Country            = country;
+      Postcode           = postcode;
+      AccLock            = acc_lock;
+      LastDate           = last_date;
+      SalesVolume        = sales_volume;
+      SalesVolumeTarget  = sales_volume_target;
+      ChangeRateDate     = change_rate_date;
+      Fax                = fax;
+      Phone              = phone;
+      Email              = email;
+      Url                = url;
+      Currency           = currency;
+      CurrencyTarget     = currency_target;
+      Language           = language;
+      Weblogin           = weblogin;
+      Webpw              = webpw;
+      Memo               = memo;
+      CreatedBy          = created_by;
+      CreatedAt          = created_at;
+      LocalLastChangedBy = local_last_changed_by;
+      LocalLastChangedAt = local_last_changed_at;
+      LastChangedAt      = last_changed_at;
+    }
+}
+
+define behavior for ZR_CS02_CUSTORDERS_S alias _Order
+persistent table zcs02_custorders
+draft table zcs02_orders_d_s
+
+lock dependent by _Customer
+authorization dependent by _Customer
+etag master LocalLastChangedAt
+//etag master <field_name>
+//late numbering
+//  key parentdraftuuid : sysuuid_x16 not null;
+//  key draftuuid       : sysuuid_x16 not null;
+{
+  update;
+  delete;
+  field ( readonly ) Customerid;
+  field ( readonly : update ) Orderid;
+  field ( mandatory : create ) Orderid;
+  field ( readonly ) CreatedBy, CreatedAt, LocalLastChangedBy, LocalLastChangedAt, LastChangedAt;
+
+  //  field ( readonly ) Orderid;
+
+
+  //  draft action Activate optimized;
+  //  draft action Discard;
+  //  draft action Edit;
+  //  draft action Resume;
+  //  draft determine action Prepare;
+
+  determination updateSalesVolume on save { create; delete; field OrderTotal; field Currency; field Status; }
+
+  association _Customer { with draft; }
+  mapping for zcs02_custorders corresponding
+    {
+      Orderid            = orderid;
+      Customerid         = customerid;
+      OrderDate          = order_date;
+      OrderTotal         = order_total;
+      Discount           = discount;
+      Info               = info;
+      Status             = status;
+      Currency           = currency;
+      CreatedBy          = created_by;
+      CreatedAt          = created_at;
+      LocalLastChangedBy = local_last_changed_by;
+      LocalLastChangedAt = local_last_changed_at;
+      LastChangedAt      = last_changed_at;
+    }
+}

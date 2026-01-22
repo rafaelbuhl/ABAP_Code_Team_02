@@ -1,0 +1,5 @@
+@EndUserText.label: 'ServiceDefinition für Customers & Orders'
+define service ZUI_CS02_CUSTOMERS_ORDERS {
+  expose ZR_CS02_CUSTOMERS_M;
+  expose ZR_CS02_CUSTORDERS_S;
+}

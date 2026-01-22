@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZC_CS09_ZPARENT'
+@MappingRole: true
+define role ZC_CS09_ZPARENT {
+  grant select on ZC_CS09_ZPARENT
+  where INHERITING CONDITIONS FROM ENTITY ZR_CS09_ZPARENT REPLACING { ROOT WITH _BaseEntity };
+}

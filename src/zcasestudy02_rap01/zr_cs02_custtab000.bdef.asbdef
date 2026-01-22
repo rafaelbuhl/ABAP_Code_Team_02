@@ -1,0 +1,48 @@
+managed implementation in class ZBP_R_CS02_CUSTTAB000 unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_CS02_CUSTTAB000 alias ZrCs02Custtab000
+persistent table ZCS02_CUSTTAB
+extensible
+draft table ZCS02_CSTTB000_D
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+{
+  field ( readonly )
+   UUID,
+   CreatedBy,
+   CreatedAt,
+   LocalLastChangedBy,
+   LocalLastChangedAt,
+   LastChangedAt;
+
+  field ( numbering : managed )
+   UUID;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZCS02_CUSTTAB corresponding extensible
+  {
+    UUID = uuid;
+    Name = name;
+    DefaultValue = default_value;
+    Active = active;
+    CreatedBy = created_by;
+    CreatedAt = created_at;
+    LocalLastChangedBy = local_last_changed_by;
+    LocalLastChangedAt = local_last_changed_at;
+    LastChangedAt = last_changed_at;
+  }
+
+}

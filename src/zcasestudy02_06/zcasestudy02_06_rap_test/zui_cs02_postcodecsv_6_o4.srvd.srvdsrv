@@ -1,0 +1,12 @@
+@EndUserText: {
+  label: 'CSV Import OData Service'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZC_CS02_POSTCODE_6'
+  }
+}
+define service ZUI_CS02_POSTCODECSV_6_O4
+  provider contracts odata_v4_ui {
+  expose ZC_CS02_POSTCODE_6 as HTTP;
+}

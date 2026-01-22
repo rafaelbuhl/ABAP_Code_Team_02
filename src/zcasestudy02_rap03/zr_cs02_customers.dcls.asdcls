@@ -1,0 +1,9 @@
+@EndUserText.label: 'ZR_CS02_CUSTOMERS'
+@MappingRole: true
+define role ZR_CS02_CUSTOMERS {
+  grant select on ZR_CS02_CUSTOMERS
+  where (Postcode) = aspect pfcg_auth(ZCS02PCODE, ZC02PCODE, ACTVT = '01' ) or
+  (Postcode) = aspect pfcg_auth(ZCS02PCODE, ZC02PCODE, ACTVT = '02' ) or
+  (Postcode) = aspect pfcg_auth(ZCS02PCODE, ZC02PCODE, ACTVT = '03' ) or
+  (Postcode) = aspect pfcg_auth(ZCS02PCODE, ZC02PCODE, ACTVT = '06' ); 
+}

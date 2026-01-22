@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_ENHO" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <TOOL>BADI_IMPL</TOOL>
+   <SHORTTEXT>Implementation for data import BADI</SHORTTEXT>
+   <SPOT_NAME>ZES_CS02_IMPORT</SPOT_NAME>
+   <IMPL>
+    <ENH_BADI_IMPL_DATA>
+     <SPOT_NAME>ZES_CS02_IMPORT</SPOT_NAME>
+     <BADI_NAME>ZCS02_STATISTICS_BADI</BADI_NAME>
+     <IMPL_NAME>ZCS02_BADI_IMPLEMENTATION</IMPL_NAME>
+     <IMPL_CLASS>ZCS02_IMPORT_IMPLEMENTATION</IMPL_CLASS>
+     <ACTIVE>X</ACTIVE>
+     <IMPL_SHORTTEXT>Implementation for BADI</IMPL_SHORTTEXT>
+     <LOCKED_IN_CUSTOMIZING>X</LOCKED_IN_CUSTOMIZING>
+    </ENH_BADI_IMPL_DATA>
+   </IMPL>
+  </asx:values>
+ </asx:abap>
+</abapGit>

@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZC_CS02_POSTCODE_6'
+@MappingRole: true
+define role ZC_CS02_POSTCODE_6 {
+  grant select on ZC_CS02_POSTCODE_6
+  where INHERITING CONDITIONS FROM ENTITY ZR_CS02_POSTCODE_6 REPLACING { ROOT WITH _BaseEntity };
+}

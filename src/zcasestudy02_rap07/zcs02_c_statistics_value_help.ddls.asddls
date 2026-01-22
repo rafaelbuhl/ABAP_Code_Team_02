@@ -1,0 +1,19 @@
+@AbapCatalog.viewEnhancementCategory: [#NONE]
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'Value Help für Statistik'
+@Metadata.ignorePropagatedAnnotations: true
+define view entity ZCS02_C_STATISTICS_VALUE_HELP
+  as select from    DDCDS_CUSTOMER_DOMAIN_VALUE(
+                      p_domain_name : 'ZDTYPE02') as Values
+    left outer join DDCDS_CUSTOMER_DOMAIN_VALUE_T(
+                      p_domain_name : 'ZDTYPE02') as Texts on  Texts.domain_name    = Values.domain_name
+                                                             and Texts.value_position = Values.value_position
+                                                             and Texts.language       = $session.system_language
+{
+      //      @ObjectModel.text.element: [ 'Description' ]
+      //      @UI.textArrangement: #TEXT_ONLY
+  key Values.value_low as Type,
+
+      //      @UI.hidden: true
+      Texts.text       as Description
+}

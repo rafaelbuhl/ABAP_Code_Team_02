@@ -1,0 +1,11 @@
+@EndUserText.label: 'Access Control für Postcode Max Umsatz'
+@MappingRole: true
+define role ZCS02CUSTOMERS_C_MAX {
+    grant 
+        select
+            on
+                ZCS02CUSTOMERS_C_MAX
+                    where
+                        (Postcode) = aspect pfcg_auth(ZCS02PCODE, ZC02PCODE, ACTVT = '03');
+                        
+}

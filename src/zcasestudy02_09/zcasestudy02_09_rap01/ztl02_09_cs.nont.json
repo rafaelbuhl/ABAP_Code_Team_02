@@ -1,0 +1,11 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "SAP Object Node Type ZTL02_09_CS",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "name": "ZTL02_09_CS",
+  "sapObjectType": "ZTL02_09_CS",
+  "rootNode": true
+}

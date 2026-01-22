@@ -1,0 +1,5 @@
+CLASS zbp_r_cs02_customers_06_ms DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zr_cs02_customers_06_ms.
+ENDCLASS.
+
+CLASS zbp_r_cs02_customers_06_ms IMPLEMENTATION.
+ENDCLASS.

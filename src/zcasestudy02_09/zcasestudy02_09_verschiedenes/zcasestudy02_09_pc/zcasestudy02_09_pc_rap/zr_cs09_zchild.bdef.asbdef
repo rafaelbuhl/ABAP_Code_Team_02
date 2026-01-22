@@ -1,0 +1,51 @@
+managed implementation in class ZBP_R_CS09_ZCHILD unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_CS09_ZCHILD alias ZrCs09Zchild
+persistent table ZCS09_ZCHILD
+extensible
+draft table ZCS09_ZCHILD_D
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+{
+  field ( mandatory : create )
+   ChildID,
+   ID;
+
+  field ( readonly )
+   CreatedBy,
+   CreatedAt,
+   LocalLastChangedBy,
+   LocalLastChangedAt,
+   LastChangedAt;
+
+  field ( readonly : update )
+   ChildID,
+   ID;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZCS09_ZCHILD corresponding extensible
+  {
+    ChildID = child_id;
+    ID = id;
+    Description = description;
+    CreatedBy = created_by;
+    CreatedAt = created_at;
+    LocalLastChangedBy = local_last_changed_by;
+    LocalLastChangedAt = local_last_changed_at;
+    LastChangedAt = last_changed_at;
+  }
+
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service für ZR_CS02_CUSTORDERS_06'
+define service ZUI_CS02_CUSTORDERS_06 {
+  expose ZR_CS02_CUSTORDERS_06;
+}

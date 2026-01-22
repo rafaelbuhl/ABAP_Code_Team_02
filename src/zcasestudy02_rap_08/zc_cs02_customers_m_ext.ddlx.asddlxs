@@ -1,0 +1,22 @@
+@Metadata.layer: #CUSTOMER
+annotate view ZC_CS02_CUSTOMERS_M with
+{
+  @UI.identification: [ {
+  position: 280
+  } ]
+  @UI.lineItem: [ {
+    position: 280
+  } ]
+  @UI.selectionField: [ {
+    position: 280
+  } ]
+  @UI.hidden: false
+  ZZVipZem;
+  @UI:{ lineItem: [{ position: 290, label: 'Anzahl der Bestellungen' }],
+      identification: [{ position: 290 }],
+      selectionField: [{ position: 290 }] }
+  @UI.hidden: false
+  OrderCount;
+
+
+}
